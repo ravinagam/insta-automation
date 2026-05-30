@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: insta-overlay-api
+    runtime: python
+    buildCommand: |
+      apt-get update -qq &&
+      apt-get install -y ffmpeg fonts-dejavu-core &&
+      pip install -r requirements.txt
+    startCommand: gunicorn app:app --timeout 120 --workers 1 --bind 0.0.0.0:$PORT
+    envVars:
+      - key: API_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    healthCheckPath: /health
