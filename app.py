@@ -110,9 +110,9 @@ def overlay_image_bytes(img_bytes, title, price, tagline):
 
     draw = ImageDraw.Draw(img)
 
-    title_font,   title_text   = fit_text(draw, title,   bold_path,   int(H * 0.07), max_w)
-    price_font,   price_text   = fit_text(draw, price,   bold_path,   int(H * 0.08), max_w)
-    tagline_font, tagline_text = fit_text(draw, tagline, italic_path, int(H * 0.05), max_w)
+    title_font,   title_text   = fit_text(draw, title,   bold_path,   int(H * 0.05),  max_w)
+    price_font,   price_text   = fit_text(draw, price,   bold_path,   int(H * 0.08),  max_w)
+    tagline_font, tagline_text = fit_text(draw, tagline, italic_path, int(H * 0.035), max_w)
 
     draw_centered(draw, title_text,   title_font,   int(H * 0.74), W, (255, 255, 255, 255))
     draw_centered(draw, price_text,   price_font,   int(H * 0.82), W, (255, 215,   0, 255))
@@ -139,11 +139,11 @@ def overlay_video(input_path, output_path, title, price, tagline):
     vf = (
         f"drawbox=x=0:y=ih*0.72:w=iw:h=ih*0.28:color=black@0.75:t=fill,"
         f"drawtext=fontfile={bold_font}:text='{title_e}':"
-        f"fontcolor=white:fontsize=h*0.07:x=(w-text_w)/2:y=h*0.74:box=0,"
+        f"fontcolor=white:fontsize=h*0.05:x=(w-text_w)/2:y=h*0.74:box=0,"
         f"drawtext=fontfile={bold_font}:text='{price_e}':"
         f"fontcolor=#FFD700:fontsize=h*0.08:x=(w-text_w)/2:y=h*0.82:box=0,"
         f"drawtext=fontfile={bold_font}:text='{tagline_e}':"
-        f"fontcolor=white:fontsize=h*0.05:x=(w-text_w)/2:y=h*0.91:box=0"
+        f"fontcolor=white:fontsize=h*0.035:x=(w-text_w)/2:y=h*0.91:box=0"
     )
 
     cmd = [
