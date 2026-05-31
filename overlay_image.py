@@ -175,9 +175,9 @@ def process_image(
         print(f"  Font (italic): {italic_path}")
 
     # ── Font sizes proportional to image height ───────────────────────────────
-    title_size   = int(H * 0.07)   # 7% of height  → largest heading
+    title_size   = int(H * 0.05)   # 5% of height  → product name
     price_size   = int(H * 0.08)   # 8% of height  → price most prominent
-    tagline_size = int(H * 0.05)   # 5% of height  → subtitle, smallest
+    tagline_size = int(H * 0.035)  # 3.5% of height → subtitle, smallest
 
     max_text_w = int(W * 0.90)     # text must fit within 90% of image width
 
